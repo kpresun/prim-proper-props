@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import GuestList from '../GuestList/GuestList';
 import DinnerSupplies from '../DinnerSupplies/DinnerSupplies';
+// import GuestForm from '../GuestForm/GuestForm';
 
 function App() {
   let [guestList, setGuestList] = useState([]);
@@ -58,7 +59,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1><Header title={'Prim Proper Props'}/></h1>
+        <Header title={'Prim Proper Props'}/>
       </header>
       <h2>Party Leader</h2>
       {guestList[0] && <h3>{guestList[0].name}</h3>}
@@ -116,19 +117,8 @@ function App() {
           <GuestList list={guestList}/>
         </tbody>
       </table>
-      <h2>Dinner Supplies</h2>
-      <div>
-        Spoons: {guestList.length * 2}
-      </div>
-      <div>
-        Forks: {guestList.length * 2}
-      </div>
-      <div>
-        Knives: {guestList.length * 2}
-      </div>
-      <footer>
-            <Footer head3={'Have fun!'} pel={'Dont forget to mind your Ps and Qs!'}/>
-      </footer>
+        <DinnerSupplies head2={'Dinner Supplies '} list={guestList}/>
+        <Footer head3={'Have fun!'} pel={'Dont forget to mind your Ps and Qs!'}/>
     </div>
   );
 }
