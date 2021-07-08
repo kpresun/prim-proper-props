@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import GuestList from '../GuestList/GuestList';
 import DinnerSupplies from '../DinnerSupplies/DinnerSupplies';
-// import GuestForm from '../GuestForm/GuestForm';
+import GuestForm from '../GuestForm/GuestForm';
 
 function App() {
   let [guestList, setGuestList] = useState([]);
@@ -58,67 +58,19 @@ function App() {
   console.log(newGuestMeal)
   return (
     <div className="App">
-      <header>
-        <Header title={'Prim Proper Props'}/>
-      </header>
+      <Header title={'Prim Proper Props'}/>
       <h2>Party Leader</h2>
       {guestList[0] && <h3>{guestList[0].name}</h3>}
-      <h2>Add a new guest</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name
-        </label>
-        <input
-          type="text"
-          placeholder="Name"
-          value={newGuestName}
-          onChange={(evt) => setNewGuestName(evt.target.value)}
-        />
-        <div>
-          Would this guest like a kid's meal?
-          <div >
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  value={true}
-                  checked={newGuestMeal === 'true'}
-                  name="kidsMeal"
-                  onChange={(evt) => setNewGuestMeal(evt.target.value)}
-                />
-                Yes, this guest would like a Kid's Meal
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  value={false}
-                  checked={newGuestMeal === 'false'}
-                  name="kidsMeal"
-                  onChange={(evt) => setNewGuestMeal(evt.target.value)}
-                />
-                No, this guest would not like a Kid's Meal
-              </label>
-            </div>
-          </div>
-        </div>
-        <button type="submit">Add Guest</button>
-      </form>
-      <h2>Guest List</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Kid's Meal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <GuestList list={guestList}/>
-        </tbody>
-      </table>
-        <DinnerSupplies head2={'Dinner Supplies '} list={guestList}/>
-        <Footer head3={'Have fun!'} pel={'Dont forget to mind your Ps and Qs!'}/>
+      <GuestForm 
+        newGuestName={newGuestName}
+        setNewGuestName={setNewGuestName}
+        newGuestMeal={newGuestMeal}
+        setNewGuestMeal={setNewGuestMeal}
+        handleSubmit={handleSubmit}
+      />
+      <GuestList list={guestList}/>
+      <DinnerSupplies head2={'Dinner Supplies '} list={guestList}/>
+      <Footer head3={'Have fun!'} pel={'Dont forget to mind your Ps and Qs!'}/>
     </div>
   );
 }
