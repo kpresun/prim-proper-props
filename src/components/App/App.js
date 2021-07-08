@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 function App() {
   let [guestList, setGuestList] = useState([]);
@@ -54,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Prim Proper Props</h1>
+        <h1><Header title={'Prim Proper Props'}/></h1>
       </header>
       <h2>Party Leader</h2>
       {guestList[0] && <h3>{guestList[0].name}</h3>}
@@ -128,8 +130,7 @@ function App() {
         Knives: {guestList.length * 2}
       </div>
       <footer>
-        <h3>Have fun!</h3>
-        <p>Don't forget to mind your Ps and Qs!</p>
+            <Footer head3={'Have fun!'} pel={'Dont forget to mind your Ps and Qs!'}/>
       </footer>
     </div>
   );
